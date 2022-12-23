@@ -1,3 +1,5 @@
+import Layout from "../components/Layout";
+
 export default function Home() {
   return (
     <div
@@ -8,7 +10,9 @@ export default function Home() {
 
     `}
     >
-      <h1>App</h1>
+      <Layout title="register">
+        <span>Content</span>
+      </Layout>
     </div>
   );
 }
