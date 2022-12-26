@@ -27,7 +27,9 @@ export default function TableForm(props: TableFormProps) {
   }
   return (
     <table>
-      <thead>{renderTHEad()}</thead>
+      <thead className={`bg-gradient-to-r from-purple-500 to-purple-800`}>
+        {renderTHEad()}
+      </thead>
       <tbody>{renderDataTBody()}</tbody>
     </table>
   );
