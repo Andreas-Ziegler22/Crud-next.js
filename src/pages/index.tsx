@@ -1,6 +1,5 @@
 import Client from "../components/core/Client";
 import Layout from "../components/Layout";
-import TableTable from "../components/TableTable";
 
 export default function Home() {
   const clients = [
@@ -18,9 +17,7 @@ export default function Home() {
 
     `}
     >
-      <Layout title="register">
-        <TableTable clients={clients}></TableTable>
-      </Layout>
+      <Layout title="register"></Layout>
     </div>
   );
 }

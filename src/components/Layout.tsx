@@ -1,5 +1,3 @@
-import HeadTitle from "./HeadTitle";
-
 interface LayoutProps {
   title: string;
   children: any;
@@ -13,7 +11,6 @@ export default function Layout(props: LayoutProps) {
           bg-white text-gray-800 rounded-md
       `}
     >
-      <HeadTitle>{props.title}</HeadTitle>
       <div className="p-6">{props.children}</div>
     </div>
   );
