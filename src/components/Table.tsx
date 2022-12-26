@@ -14,5 +14,22 @@ export default function TableTable(props: TableProps) {
       </tr>
     );
   }
-  return <table>{renderTopHeader()}</table>;
+  function renderDataClients() {
+    return props.clients?.map((client, i) => {
+      return (
+        <tr key={client.id}>
+          <dt>{client.id}</dt>
+          <dt>{client.name}</dt>
+          <dt>{client.age}</dt>
+        </tr>
+      );
+    });
+  }
+
+  return (
+    <table>
+      <thead>{renderTopHeader()}</thead>
+      <tbody>{renderDataClients()}</tbody>
+    </table>
+  );
 }
