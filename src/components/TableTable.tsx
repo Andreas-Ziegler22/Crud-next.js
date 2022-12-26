@@ -41,7 +41,7 @@ export default function TableTable(props: TableProps) {
       >
         {renderTopHeader()}
       </thead>
-      <tbody>{renderDataClients()}</tbody>
+      {/* <tbody>{renderDataClients()}</tbody> */}
     </table>
   );
 }

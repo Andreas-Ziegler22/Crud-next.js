@@ -1,6 +1,6 @@
 import Client from "../components/core/Client";
 import Layout from "../components/Layout";
-import TableTable from "../components/Table";
+import TableTable from "../components/TableTable";
 
 export default function Home() {
   const clients = [

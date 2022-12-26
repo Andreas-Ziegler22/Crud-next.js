@@ -1,4 +1,4 @@
-import HeadTitle from "./Title";
+import HeadTitle from "./HeadTitle";
 
 interface LayoutProps {
   title: string;
