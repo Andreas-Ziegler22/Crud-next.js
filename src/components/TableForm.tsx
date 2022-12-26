@@ -14,9 +14,21 @@ export default function TableForm(props: TableFormProps) {
       </tr>
     );
   }
+  function renderDataTBody() {
+    return props.clients?.map((client, i) => {
+      return (
+        <tr key={client.id}>
+          <td>{client.id}</td>
+          <td>{client.name}</td>
+          <td>{client.age}</td>
+        </tr>
+      );
+    });
+  }
   return (
     <table>
       <thead>{renderTHEad()}</thead>
+      <tbody>{renderDataTBody()}</tbody>
     </table>
   );
 }
