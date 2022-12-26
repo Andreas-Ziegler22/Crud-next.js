@@ -1,3 +1,5 @@
+import TitleForm from "./TitleForm";
+
 interface LayoutProps {
   title: string;
   children: any;
@@ -11,6 +13,7 @@ export default function Layout(props: LayoutProps) {
           bg-white text-gray-800 rounded-md
       `}
     >
+      <TitleForm>{props.title}</TitleForm>
       <div className="p-6">{props.children}</div>
     </div>
   );

@@ -1,12 +1,13 @@
 import Client from "../components/core/Client";
 import Layout from "../components/Layout";
+import TableForm from "../components/TableForm";
 
 export default function Home() {
   const clients = [
     new Client("Ana", 34, "1"),
     new Client("Bia", 34, "2"),
-    new Client("Junior", 34, "3"),
-    new Client("Rob", 34, "4"),
+    new Client("Anna", 34, "3"),
+    new Client("bob", 34, "4"),
   ];
   return (
     <div
@@ -17,7 +18,9 @@ export default function Home() {
 
     `}
     >
-      <Layout title="register"></Layout>
+      <Layout title="register">
+        <TableForm clients={clients}></TableForm>
+      </Layout>
     </div>
   );
 }
