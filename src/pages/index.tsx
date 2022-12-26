@@ -1,6 +1,9 @@
+import Client from "../components/core/Client";
 import Layout from "../components/Layout";
+import TableTable from "../components/Table";
 
 export default function Home() {
+  const clients = [new Client("Ana", 34, "1")];
   return (
     <div
       className={`
@@ -11,7 +14,7 @@ export default function Home() {
     `}
     >
       <Layout title="register">
-        <span>Content</span>
+        <TableTable clients={clients}></TableTable>
       </Layout>
     </div>
   );
