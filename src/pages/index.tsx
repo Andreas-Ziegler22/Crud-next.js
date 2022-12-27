@@ -29,7 +29,7 @@ export default function Home() {
     `}
     >
       <Layout title="register">
-        <NewClientButton>New User</NewClientButton>
+        <NewClientButton className="mb-4">New User</NewClientButton>
         <TableForm
           clients={clients}
           clientSelected={selectedClient}
