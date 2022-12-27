@@ -11,6 +11,7 @@ export default function TableForm(props: TableFormProps) {
         <th className="text-left p-4">ID</th>
         <th className="text-left p-4">Name</th>
         <th className="text-left p-4">Age</th>
+        <th className="p-4">Actions</th>
       </tr>
     );
   }
@@ -24,10 +25,16 @@ export default function TableForm(props: TableFormProps) {
           <td className="text-left p-4">{client.id}</td>
           <td className="text-left p-4">{client.name}</td>
           <td className="text-left p-4">{client.age}</td>
+          {renderActions(client)}
         </tr>
       );
     });
   }
+
+  function renderActions(client: Client) {
+    return <td></td>;
+  }
+
   return (
     <table className="w-full rounded-xl overflow-hidden">
       <thead
