@@ -10,7 +10,9 @@ export default function Home() {
     new Client("bob", 34, "4"),
   ];
 
-  function selectedClient(client: Client) {}
+  function selectedClient(client: Client) {
+    console.log(client.name);
+  }
 
   return (
     <div

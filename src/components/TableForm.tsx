@@ -40,14 +40,20 @@ export default function TableForm(props: TableFormProps) {
     return (
       <td className="flex justify-center">
         {props.clientSelected ? (
-          <button className="flex justify-center items-center text-green-700 rounded-full p-2 m-1 hover:bg-purple-50">
+          <button
+            onClick={() => props.clientSelected?.(client)}
+            className="flex justify-center items-center text-green-700 rounded-full p-2 m-1 hover:bg-purple-50"
+          >
             {IconEdit}
           </button>
         ) : (
           false
         )}
         {props.clientDeleted ? (
-          <button className="flex justify-center items-center text-red-700 rounded-full p-2 m-1 hover:bg-purple-50">
+          <button
+            onClick={() => props.clientDeleted?.(client)}
+            className="flex justify-center items-center text-red-700 rounded-full p-2 m-1 hover:bg-purple-50"
+          >
             {IconTrash}
           </button>
         ) : (
