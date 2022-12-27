@@ -9,6 +9,9 @@ export default function Home() {
     new Client("Anna", 34, "3"),
     new Client("bob", 34, "4"),
   ];
+
+  function selectedClient(client: Client) {}
+
   return (
     <div
       className={`
@@ -19,7 +22,10 @@ export default function Home() {
     `}
     >
       <Layout title="register">
-        <TableForm clients={clients}></TableForm>
+        <TableForm
+          clients={clients}
+          clientSelected={selectedClient}
+        ></TableForm>
       </Layout>
     </div>
   );

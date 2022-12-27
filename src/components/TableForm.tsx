@@ -8,13 +8,15 @@ interface TableFormProps {
 }
 
 export default function TableForm(props: TableFormProps) {
+  const showActions = props.clientDeleted || props.clientSelected;
+
   function renderTHEad() {
     return (
       <tr>
         <th className="text-left p-4">ID</th>
         <th className="text-left p-4">Name</th>
         <th className="text-left p-4">Age</th>
-        <th className="p-4">Actions</th>
+        {showActions ? <th className="p-4">Actions</th> : false}
       </tr>
     );
   }
@@ -28,7 +30,7 @@ export default function TableForm(props: TableFormProps) {
           <td className="text-left p-4">{client.id}</td>
           <td className="text-left p-4">{client.name}</td>
           <td className="text-left p-4">{client.age}</td>
-          {renderActions(client)}
+          {showActions ? renderActions(client) : false}
         </tr>
       );
     });
