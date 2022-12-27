@@ -14,6 +14,10 @@ export default function Home() {
     console.log(client.name);
   }
 
+  function deletedClient(client: Client) {
+    console.log(`Delete....${client.name}`);
+  }
+
   return (
     <div
       className={`
@@ -27,6 +31,7 @@ export default function Home() {
         <TableForm
           clients={clients}
           clientSelected={selectedClient}
+          clientDeleted={deletedClient}
         ></TableForm>
       </Layout>
     </div>
