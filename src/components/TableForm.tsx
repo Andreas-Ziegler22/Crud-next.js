@@ -38,7 +38,7 @@ export default function TableForm(props: TableFormProps) {
 
   function renderActions(client: Client) {
     return (
-      <td className="flex">
+      <td className="flex justify-center">
         {props.clientSelected ? (
           <button className="flex justify-center items-center text-green-700 rounded-full p-2 m-1 hover:bg-purple-50">
             {IconEdit}
