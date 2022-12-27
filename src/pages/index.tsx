@@ -30,7 +30,9 @@ export default function Home() {
     >
       <Layout title="CRUD">
         <div className="flex justify-end">
-          <NewClientButton className="mb-4">New User</NewClientButton>
+          <NewClientButton hue="green" className="mb-4">
+            New User
+          </NewClientButton>
         </div>
         <TableForm
           clients={clients}
