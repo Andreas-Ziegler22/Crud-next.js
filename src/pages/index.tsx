@@ -1,5 +1,6 @@
 import Client from "../components/core/Client";
 import Layout from "../components/Layout";
+import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
     `}
     >
       <Layout title="register">
+        <NewClientButton>New User</NewClientButton>
         <TableForm
           clients={clients}
           clientSelected={selectedClient}
