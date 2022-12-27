@@ -1,4 +1,5 @@
 import Client from "./core/Client";
+import { IconEdit, IconTrash } from "./Icons";
 
 interface TableFormProps {
   clients: Client[];
@@ -32,7 +33,16 @@ export default function TableForm(props: TableFormProps) {
   }
 
   function renderActions(client: Client) {
-    return <td></td>;
+    return (
+      <td className="flex">
+        <button className="flex justify-center items-center text-green-700 rounded-full p-2 m-1 hover:bg-purple-50">
+          {IconEdit}
+        </button>
+        <button className="flex justify-center items-center text-red-700 rounded-full p-2 m-1 hover:bg-purple-50">
+          {IconTrash}
+        </button>
+      </td>
+    );
   }
 
   return (
