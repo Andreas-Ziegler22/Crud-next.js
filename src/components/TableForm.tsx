@@ -3,6 +3,8 @@ import { IconEdit, IconTrash } from "./Icons";
 
 interface TableFormProps {
   clients: Client[];
+  clientSelected?: (client: Client) => void;
+  clientDeleted?: (client: Client) => void;
 }
 
 export default function TableForm(props: TableFormProps) {
