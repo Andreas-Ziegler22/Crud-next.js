@@ -3,13 +3,14 @@ interface InputFormProps {
   text: string;
   value: any;
   onlyread?: boolean;
+  className?: string;
   ValueChange?: (value: any) => void;
 }
 
 export default function InputForm(props: InputFormProps) {
   return (
-    <div className="flex flex-col">
-      <label className="mb-4">{props.text}</label>
+    <div className={`flex flex-col ${props.className}`}>
+      <label className="mb-2">{props.text}</label>
       <input
         type={props.type ?? "text"}
         value={props.value}

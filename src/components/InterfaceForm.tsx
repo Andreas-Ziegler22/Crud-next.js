@@ -12,8 +12,17 @@ export default function InterfaceForm(props: interfaceFormProps) {
   const [age, setAge] = useState(props.client?.name ?? 0);
   return (
     <div>
-      {id ? <InputForm onlyread text="ID" value={id} /> : false}
-      <InputForm text="Name:" value={name} ValueChange={setName} />
+      {id ? (
+        <InputForm onlyread text="ID" value={id} className="mb-5" />
+      ) : (
+        false
+      )}
+      <InputForm
+        text="Name:"
+        value={name}
+        ValueChange={setName}
+        className="mb-5"
+      />
       <InputForm text="Age:" type="number" value={age} ValueChange={setAge} />
     </div>
   );
