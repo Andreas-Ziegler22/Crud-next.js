@@ -5,7 +5,7 @@ interface interfaceFormProps {}
 export default function InterfaceForm(props: interfaceFormProps) {
   return (
     <div>
-      <InputForm />
+      <InputForm text="name" value="test" />
     </div>
   );
 }
