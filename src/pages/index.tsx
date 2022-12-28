@@ -1,4 +1,5 @@
 import Client from "../components/core/Client";
+import InterfaceForm from "../components/InterfaceForm";
 import Layout from "../components/Layout";
 import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
@@ -34,11 +35,12 @@ export default function Home() {
             New User
           </NewClientButton>
         </div>
-        <TableForm
+        {/* <TableForm
           clients={clients}
           clientSelected={selectedClient}
           clientDeleted={deletedClient}
-        ></TableForm>
+        ></TableForm> */}
+        <InterfaceForm />
       </Layout>
     </div>
   );
