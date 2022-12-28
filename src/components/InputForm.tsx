@@ -3,6 +3,7 @@ interface InputFormProps {
   text: string;
   value: any;
   onlyread?: boolean;
+  ValueChange?: (value: any) => void;
 }
 
 export default function InputForm(props: InputFormProps) {
@@ -13,10 +14,11 @@ export default function InputForm(props: InputFormProps) {
         type={props.type ?? "text"}
         value={props.value}
         readOnly={props.onlyread}
+        onChange={(e) => props.ValueChange?.(e.target.value)}
         className={`border-purple-500 
-        rounded-lg focus:outline-none
-         bg-gray-100 px-4 py-2
-         ${props.onlyread ? "" : "focus:bg-white"}
+        rounded-lg focus:outline-none bg-gray-100 px-4 py-2 ${
+          props.onlyread ? "" : "focus:bg-white"
+        }
         
         `}
       />
