@@ -15,7 +15,7 @@ export default function InputForm(props: InputFormProps) {
         value={props.value}
         readOnly={props.onlyread}
         onChange={(e) => props.ValueChange?.(e.target.value)}
-        className={`border-purple-500 
+        className={`border border-purple-500 
         rounded-lg focus:outline-none bg-gray-100 px-4 py-2 ${
           props.onlyread ? "" : "focus:bg-white"
         }

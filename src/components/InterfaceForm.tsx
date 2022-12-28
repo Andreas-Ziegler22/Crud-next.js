@@ -13,8 +13,8 @@ export default function InterfaceForm(props: interfaceFormProps) {
   return (
     <div>
       {id ? <InputForm onlyread text="ID" value={id} /> : false}
-      <InputForm text="Name:" value={name} />
-      <InputForm text="Age:" type="number" value={age} />
+      <InputForm text="Name:" value={name} ValueChange={setName} />
+      <InputForm text="Age:" type="number" value={age} ValueChange={setAge} />
     </div>
   );
 }
