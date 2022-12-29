@@ -6,6 +6,9 @@ import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
 
 export default function Home() {
+  const [client, setClient] = useState<Client>(Client.empty());
+  const [visible, setVisible] = useState<"table" | "form">("table");
+
   const clients = [
     new Client("Ana", 34, "1"),
     new Client("Bia", 34, "2"),
@@ -14,7 +17,8 @@ export default function Home() {
   ];
 
   function selectedClient(client: Client) {
-    console.log(client.name);
+    setClient(client);
+    setVisible("form");
   }
 
   function deletedClient(client: Client) {
@@ -22,9 +26,8 @@ export default function Home() {
   }
   function saveClient(client: Client) {
     console.log(client);
+    setVisible("table");
   }
-
-  const [visible, setVisible] = useState<"table" | "form">("table");
 
   return (
     <div
@@ -55,7 +58,7 @@ export default function Home() {
           </>
         ) : (
           <InterfaceForm
-            client={clients[0]}
+            client={client}
             clientChange={saveClient}
             calledoff={() => setVisible("table")}
           />
