@@ -20,6 +20,9 @@ export default function Home() {
   function deletedClient(client: Client) {
     console.log(`Delete....${client.name}`);
   }
+  function saveClient(client: Client) {
+    console.log(client);
+  }
 
   const [visible, setVisible] = useState<"table" | "form">("table");
 
@@ -53,6 +56,7 @@ export default function Home() {
         ) : (
           <InterfaceForm
             client={clients[0]}
+            clientChange={saveClient}
             calledoff={() => setVisible("table")}
           />
         )}

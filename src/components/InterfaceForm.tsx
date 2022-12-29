@@ -5,6 +5,7 @@ import NewClientButton from "./NewClientButton";
 
 interface interfaceFormProps {
   client: Client;
+  clientChange?: (client: Client) => void;
   calledoff?: () => void;
 }
 
@@ -27,7 +28,11 @@ export default function InterfaceForm(props: interfaceFormProps) {
       />
       <InputForm text="Age:" type="number" value={age} ValueChange={setAge} />
       <div className="flex justify-end mt-7">
-        <NewClientButton hue="blue" className="mr-2">
+        <NewClientButton
+          hue="blue"
+          className="mr-2"
+          onClick={() => props.clientChange?.(new Client(name, age, id))}
+        >
           {id ? "Edit" : "Save"}
         </NewClientButton>
         <NewClientButton onClick={props.calledoff}>Cancel</NewClientButton>
