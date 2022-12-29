@@ -36,7 +36,11 @@ export default function Home() {
         {visible === "table" ? (
           <>
             <div className="flex justify-end">
-              <NewClientButton hue="green" className="mb-4">
+              <NewClientButton
+                hue="green"
+                className="mb-4"
+                onClick={() => setVisible("form")}
+              >
                 New User
               </NewClientButton>
             </div>
