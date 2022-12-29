@@ -40,7 +40,7 @@ export default function Home() {
           clientSelected={selectedClient}
           clientDeleted={deletedClient}
         ></TableForm> */}
-        <InterfaceForm />
+        <InterfaceForm client={clients[0]}></InterfaceForm>
       </Layout>
     </div>
   );

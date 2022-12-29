@@ -25,8 +25,10 @@ export default function InterfaceForm(props: interfaceFormProps) {
         className="mb-5"
       />
       <InputForm text="Age:" type="number" value={age} ValueChange={setAge} />
-      <div>
-        <NewClientButton hue="blue">{id ? "Edit" : "Save"}</NewClientButton>
+      <div className="flex justify-end mt-7">
+        <NewClientButton hue="blue" className="mr-2">
+          {id ? "Edit" : "Save"}
+        </NewClientButton>
         <NewClientButton>Cancel</NewClientButton>
       </div>
     </div>
