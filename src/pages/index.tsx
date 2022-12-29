@@ -51,7 +51,10 @@ export default function Home() {
             ></TableForm>
           </>
         ) : (
-          <InterfaceForm client={clients[0]}></InterfaceForm>
+          <InterfaceForm
+            client={clients[0]}
+            calledoff={() => setVisible("table")}
+          />
         )}
       </Layout>
     </div>

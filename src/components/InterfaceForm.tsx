@@ -5,6 +5,7 @@ import NewClientButton from "./NewClientButton";
 
 interface interfaceFormProps {
   client: Client;
+  calledoff?: () => void;
 }
 
 export default function InterfaceForm(props: interfaceFormProps) {
@@ -29,7 +30,7 @@ export default function InterfaceForm(props: interfaceFormProps) {
         <NewClientButton hue="blue" className="mr-2">
           {id ? "Edit" : "Save"}
         </NewClientButton>
-        <NewClientButton>Cancel</NewClientButton>
+        <NewClientButton onClick={props.calledoff}>Cancel</NewClientButton>
       </div>
     </div>
   );
