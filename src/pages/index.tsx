@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Client from "../components/core/Client";
 import InterfaceForm from "../components/InterfaceForm";
 import Layout from "../components/Layout";
@@ -20,6 +21,8 @@ export default function Home() {
     console.log(`Delete....${client.name}`);
   }
 
+  const [visible, setVisible] = useState<"table" | "form">("table");
+
   return (
     <div
       className={`
@@ -30,17 +33,22 @@ export default function Home() {
     `}
     >
       <Layout title="CRUD">
-        <div className="flex justify-end">
-          <NewClientButton hue="green" className="mb-4">
-            New User
-          </NewClientButton>
-        </div>
-        {/* <TableForm
-          clients={clients}
-          clientSelected={selectedClient}
-          clientDeleted={deletedClient}
-        ></TableForm> */}
-        <InterfaceForm client={clients[0]}></InterfaceForm>
+        {visible === "table" ? (
+          <>
+            <div className="flex justify-end">
+              <NewClientButton hue="green" className="mb-4">
+                New User
+              </NewClientButton>
+            </div>
+            <TableForm
+              clients={clients}
+              clientSelected={selectedClient}
+              clientDeleted={deletedClient}
+            ></TableForm>
+          </>
+        ) : (
+          <InterfaceForm client={clients[0]}></InterfaceForm>
+        )}
       </Layout>
     </div>
   );
