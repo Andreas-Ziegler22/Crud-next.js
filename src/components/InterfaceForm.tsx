@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Client from "./core/Client";
 import InputForm from "./InputForm";
+import NewClientButton from "./NewClientButton";
 
 interface interfaceFormProps {
   client: Client;
@@ -24,6 +25,10 @@ export default function InterfaceForm(props: interfaceFormProps) {
         className="mb-5"
       />
       <InputForm text="Age:" type="number" value={age} ValueChange={setAge} />
+      <div>
+        <NewClientButton hue="blue">{id ? "Edit" : "Save"}</NewClientButton>
+        <NewClientButton>Cancel</NewClientButton>
+      </div>
     </div>
   );
 }
