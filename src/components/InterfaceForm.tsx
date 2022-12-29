@@ -12,7 +12,7 @@ interface interfaceFormProps {
 export default function InterfaceForm(props: interfaceFormProps) {
   const id = props.client?.id;
   const [name, setName] = useState(props.client?.name ?? "");
-  const [age, setAge] = useState(props.client?.name ?? 0);
+  const [age, setAge] = useState(props.client?.age ?? 0);
   return (
     <div>
       {id ? (
