@@ -20,15 +20,23 @@ export default class CollectionOfClients implements ClientRepository {
   };
 
   async save(client: Client): Promise<Client> {
-    return null;
+    if (client?.id) {
+      await this.range().doc(client.id).set(client);
+      return client;
+    } else {
+      const docRef = await this.range().add(client);
+      const doc = await docRef.get();
+      return doc.data();
+    }
   }
 
   async delete(client: Client): Promise<void> {
-    return null;
+    return this.range().doc(client.id).delete();
   }
 
   async allClients(): Promise<Client[]> {
-    return null;
+    const query = await this.range().get();
+    return query.docs.map((doc) => doc.data()) ?? [];
   }
 
   private range() {
