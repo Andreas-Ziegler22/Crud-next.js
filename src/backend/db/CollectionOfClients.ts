@@ -3,7 +3,7 @@ import Client from "../../components/core/Client";
 import ClientRepository from "../../components/core/ClientRepository";
 
 export default class CollectionOfClients implements ClientRepository {
-  converter = {
+  #converter = {
     toFirestore(client: Client) {
       return {
         name: client.name,
@@ -43,6 +43,6 @@ export default class CollectionOfClients implements ClientRepository {
     return firebase
       .firestore()
       .collection("clients")
-      .withConverter(this.converter);
+      .withConverter(this.#converter);
   }
 }

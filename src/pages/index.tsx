@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CollectionOfClients from "../backend/db/CollectionOfClients";
 import Client from "../components/core/Client";
+import ClientRepository from "../components/core/ClientRepository";
 import InterfaceForm from "../components/InterfaceForm";
 import Layout from "../components/Layout";
 import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
 
 export default function Home() {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const repo: ClientRepository = new CollectionOfClients();
+
   const [client, setClient] = useState<Client>(Client.empty());
+  const [clients, setClients] = useState<Client[]>([]);
   const [visible, setVisible] = useState<"table" | "form">("table");
 
-  const clients = [
-    new Client("Ana", 34, "1"),
-    new Client("Bia", 34, "2"),
-    new Client("Anna", 34, "3"),
-    new Client("bob", 34, "4"),
-  ];
+  useEffect(allClients, [repo]);
+
+  function allClients() {
+    repo.allClients().then((clients) => {
+      setClients(clients);
+      setVisible("table");
+    });
+  }
 
   function selectedClient(client: Client) {
     setClient(client);
@@ -28,9 +36,9 @@ export default function Home() {
     setClient(Client.empty());
     setVisible("form");
   }
-  function saveClient(client: Client) {
-    console.log(client);
-    setVisible("table");
+  async function saveClient(client: Client) {
+    await repo.save(client);
+    allClients();
   }
 
   return (
