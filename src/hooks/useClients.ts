@@ -37,6 +37,8 @@ export default function useClients() {
     allClients();
   }
   return {
+    client,
+    clients,
     saveClient,
     newClient,
     deletedClient,

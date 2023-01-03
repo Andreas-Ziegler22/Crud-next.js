@@ -6,8 +6,18 @@ import InterfaceForm from "../components/InterfaceForm";
 import Layout from "../components/Layout";
 import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
+import useClients from "../hooks/useClients";
 
 export default function Home() {
+  const {
+    client,
+    clients,
+    newClient,
+    saveClient,
+    selectedClient,
+    deletedClient,
+  } = useClients();
+
   return (
     <div
       className={`
