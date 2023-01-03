@@ -2,26 +2,28 @@ import { useState, useEffect } from "react";
 import CollectionOfClients from "../backend/db/CollectionOfClients";
 import Client from "../components/core/Client";
 import ClientRepository from "../components/core/ClientRepository";
+import useTableOrForm from "./useTableOrForm";
 
 export default function useClients() {
   const repo: ClientRepository = new CollectionOfClients();
 
+  const { tableVisible, showTable, showForm } = useTableOrForm();
+
   const [client, setClient] = useState<Client>(Client.empty());
   const [clients, setClients] = useState<Client[]>([]);
-  const [visible, setVisible] = useState<"table" | "form">("table");
 
   useEffect(allClients, []);
 
   function allClients() {
     repo.allClients().then((clients) => {
       setClients(clients);
-      setVisible("table");
+      showTable();
     });
   }
 
   function selectedClient(client: Client) {
     setClient(client);
-    setVisible("form");
+    showForm();
   }
 
   async function deletedClient(client: Client) {
@@ -30,7 +32,7 @@ export default function useClients() {
   }
   function newClient() {
     setClient(Client.empty());
-    setVisible("form");
+    showForm();
   }
   async function saveClient(client: Client) {
     await repo.save(client);
@@ -44,5 +46,7 @@ export default function useClients() {
     deletedClient,
     selectedClient,
     allClients,
+    tableVisible,
+    showTable,
   };
 }

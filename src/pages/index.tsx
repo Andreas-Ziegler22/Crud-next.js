@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import CollectionOfClients from "../backend/db/CollectionOfClients";
-import Client from "../components/core/Client";
-import ClientRepository from "../components/core/ClientRepository";
 import InterfaceForm from "../components/InterfaceForm";
 import Layout from "../components/Layout";
 import NewClientButton from "../components/NewClientButton";
@@ -16,6 +12,8 @@ export default function Home() {
     saveClient,
     selectedClient,
     deletedClient,
+    tableVisible,
+    showTable,
   } = useClients();
 
   return (
@@ -28,7 +26,7 @@ export default function Home() {
     `}
     >
       <Layout title="CRUD">
-        {visible === "table" ? (
+        {tableVisible ? (
           <>
             <div className="flex justify-end">
               <NewClientButton hue="green" className="mb-4" onClick={newClient}>
@@ -45,7 +43,7 @@ export default function Home() {
           <InterfaceForm
             client={client}
             clientChange={saveClient}
-            calledoff={() => setVisible("table")}
+            calledoff={showTable}
           />
         )}
       </Layout>
