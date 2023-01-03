@@ -1,3 +1,8 @@
+import { useState, useEffect } from "react";
+import CollectionOfClients from "../backend/db/CollectionOfClients";
+import Client from "../components/core/Client";
+import ClientRepository from "../components/core/ClientRepository";
+
 export default function useClients() {
   const repo: ClientRepository = new CollectionOfClients();
 
@@ -31,4 +36,11 @@ export default function useClients() {
     await repo.save(client);
     allClients();
   }
+  return {
+    saveClient,
+    newClient,
+    deletedClient,
+    selectedClient,
+    allClients,
+  };
 }
