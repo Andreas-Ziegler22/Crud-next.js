@@ -8,14 +8,13 @@ import NewClientButton from "../components/NewClientButton";
 import TableForm from "../components/TableForm";
 
 export default function Home() {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const repo: ClientRepository = new CollectionOfClients();
 
   const [client, setClient] = useState<Client>(Client.empty());
   const [clients, setClients] = useState<Client[]>([]);
   const [visible, setVisible] = useState<"table" | "form">("table");
 
-  useEffect(allClients, [repo]);
+  useEffect(allClients, []);
 
   function allClients() {
     repo.allClients().then((clients) => {
